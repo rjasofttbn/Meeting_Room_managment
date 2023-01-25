@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>codeworxtech MailSend</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>html{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}*,*:before,*:after{-webkit-box-sizing:inherit;-moz-box-sizing:inherit;box-sizing:inherit}.tabs{margin-bottom:-1px!important;position:relative}.tab-content{padding:30px 60px;top:197px;color:#000;background-color:#fff}.tab-pane{display:none;width:70%;position:relative;left:15%}.tab-pane.is-active{display:block;//width:50%;//position:relative;//left:50%;//transform:translateX(-50%)}.is-active{display:initial}.cent{display:block;margin:10px auto;padding:5px;border:1px solid #ccc}.video{display:block;margin:0 auto}.hero-body{padding:.5rem 2rem}.navbar-item img{max-height:2.5rem}form.right{margin-right:40px}.content pre{-webkit-overflow-scrolling:touch;overflow-x:auto;padding:1.25em;white-space:pre-wrap;word-wrap:normal}</style>
+<style>.panel{margin:0}.panel-heading{background-color:#f7f7f7}span.info{font-size:.8rem;font-weight:400}.table{margin-bottom:0}.is-3{color:#3e3e3e!important}tr:nth-child(odd){background-color:#b3b3b311}td{text-align:left!important}td.desc{text-align:right!important}</style>
+<style>.accordionWrapper{background:#fff;width:100%}.accordionItem{float:left;display:block;width:100%;box-sizing:border-box;font-family:'Open-sans',Arial,sans-serif}.accordionItemHeading{cursor:pointer;margin:0 0 10px 0;padding:10px;background:#3E8ED0;color:#fff;width:100%;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;box-sizing:border-box}.close .accordionItemContent{height:0;transition:height 1s ease-out;-webkit-transform:scaleY(0);-o-transform:scaleY(0);-ms-transform:scaleY(0);transform:scaleY(0);float:left;display:block}.open .accordionItemContent{padding:20px;background-color:#fff;border:1px solid #ddd;width:100%;margin:0 0 10px 0;display:block;-webkit-transform:scaleY(1);-o-transform:scaleY(1);-ms-transform:scaleY(1);transform:scaleY(1);-webkit-transform-origin:top;-o-transform-origin:top;-ms-transform-origin:top;transform-origin:top;-webkit-transition:-webkit-transform 0.4s ease-out;-o-transition:-o-transform 0.4s ease;-ms-transition:-ms-transform 0.4s ease;transition:transform 0.4s ease;box-sizing:border-box}.open .accordionItemHeading{margin:0;-webkit-border-top-left-radius:3px;-webkit-border-top-right-radius:3px;-moz-border-radius-topleft:3px;-moz-border-radius-topright:3px;border-top-left-radius:3px;border-top-right-radius:3px;-webkit-border-bottom-right-radius:0;-webkit-border-bottom-left-radius:0;-moz-border-radius-bottomright:0;-moz-border-radius-bottomleft:0;border-bottom-right-radius:0;border-bottom-left-radius:0;background-color:#bdc3c7;color:#000;font-weight:700;font-style:italic}.open .accordionItemHeading:after{content:"\25b2";float:right;margin-right:6px;font-style:normal;font-weight:400}.close .accordionItemHeading:after{content:"\25bc";float:right;margin-right:6px;font-style:normal;font-weight:400}</style>
+</head>
+<body>
+<nav class="navbar is-info">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="http://phpmailer2.com/" target="_blank">
+      <img border="0" src="data:image/png;base64,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" alt="image" />
+    </a>
+    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="field is-grouped">
+          <p class="control">
+            <a class="button is-warning" href="https://www.paypal.com/donate/?hosted_button_id=NM6FK9GVETK86" target="_blank" title="Donate">
+              <span class="icon"><i class="fa fa-paypal"></i></span>
+              <span>Donate</span>
+            </a>
+          </p>
+          <p class="control">
+            <a class="button is-primary" href="https://sourceforge.net/u/codeworxtech/profile/" target="_blank">
+              <span class="icon"><i class="fa fa-download"></i></span>
+              <span>Download</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+      MailSend
+      </h1>
+    </div>
+  </div>
+  <div class="tabs is-boxed is-centered main-menu" id="nav">
+    <ul>
+      <li data-target="pane-1" id="1" class="is-active">
+        <a>
+          <span class="icon is-small"><i class="fa fa-comment-o"></i></span>
+          <span>Intro</span>
+        </a>
+      </li>
+      <li data-target="pane-2" id="2">
+        <a>
+          <span class="icon is-small"><i class="fa fa-book"></i></span>
+          <span>Basics</span>
+        </a>
+      </li>
+      <li data-target="pane-9" id="9">
+        <a>
+          <span class="icon is-small"><i class="fa fa-info-circle"></i></span>
+          <span>About</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <!-- Intro -->
+    <div class="tab-pane is-active" id="pane-1">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2>What is MailSend?</h2>
+            <p>
+              MailSend is a mail transport class. It is authored by Andy Prevost, one of the
+              original authors of PHPMailer and PHPMailer2.
+            </p>
+            <p>
+              <b>MailSend</b> is a full featured class that includes support for SMTP, Sendmail
+              and PHP Mail(). It is under 40Kb and is safe and secure.
+              <br>
+              <h4>Order of processing:</h4>
+              <p>
+                MailSend requires minimal setup on your part. Essentially, you suppoly
+                the Sender, Recipient, Subject, and your HTML message. Send, and:
+              </p>
+              <ul>
+                <li>MailSend will get the SMTP server for your domain</li>
+                <li>MailSend will attempt to use SMTP with no authentication<br>
+                  - should not be an issue on your own domain
+                </li>
+                <li>
+                  If SMTP fails, MailSend will determine if Sendmail is installed
+                  and use Sendmail.
+                </li>
+                <li>
+                  If Sendmail fails, MailSend will default to PHP Mail(). Note that
+                  this is rare, and likely only happen on Windows servers that do not
+                  have a sendmail wrapper installed (most do).
+                </li>
+              </ul>
+              <p>
+                This specifically means that MailSend offers the greatest range of
+                MTA's. Your own SMTP server, Sendmail, PostFix, Qmail, Exim, and many
+                many more. Virtually all MTA's provide a sendmail wrapper.
+              </p>
+            <h2>How is MailSend different from PHPMailer2?</h2>
+            <p>
+              While I was admin and author of PHPMailer, many users requested a slimmed
+              down version of PHPMailer. I had launched PHPMailer-Lite that was a slimmed
+              down version of PHPMailer - it did not support SMTP, however. MailSend is
+              designed specifically for light use, small mailing lists, and form submission
+              purposes.<br>
+              MailSend is planned to be a part of the mail and form system. PHPMailer2
+              is slated to support a wide array of plugins that will be unique to PHPMailer2.
+            </p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div><!-- END pane 1 -->
+    <!-- Tutorial basic -->
+    <div class="tab-pane" id="pane-2">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h1>Basic Usage</h1>
+            <p>
+              Download the MailSend zip file. Unzip it, and put the MailSend.php on your server. In the example below, we assume
+              the MailSend.php file is in the root, along with the test.php script.
+              Your directory strure should look like:
+            </p>
+<pre>
+/MailSend.php
+/test.php
+</pre>
+            <p>
+              There is NOTHING else needed. This basic setup and test will use the form, MailSend.php, and
+              send the email using PHP's built in mail() wrapper.
+            </p>
+            <p>
+              <b>You will need to edit the test.php script to include your own
+              personalized information.</b><br>
+              There is nothing to edit or change in MailSend.php. Every aspect can be controlled from the form.
+              Here is what the form code looks like. And, there is only ONE part to edit: change the SetRecipient
+              to be your own email address (in the example below, look for the red line). Once you do that, you can
+              test the form and it will send you an email
+              with the form data you fill in during the test. One quick note: the example below includes two
+              honey pot fields to catch potential hackers. The code is there to show how that works.<br>
+              PS. This is EXACTLY the same test script included in the package:
+            </p>
+<pre>
+&lt;?php
+require_once 'MailSend.php';
+
+$mail = new codeworxtech\MailSend;
+
+$mail->SMTP_Debug = 0; // 0 = off, 1 = basic, 2 = advanced (server)
+
+$mail->SetSender( ['yourname@yourdomain.com'=>'Full Name'] );
+$mail->SetConfirmRead('confirmname@yourdomain.com');
+
+$mail->AddRecipient( ['recipient@domain.com'=>'Recipient Name'] );
+//$mail->AddCC( ['cc@domain.com'=>'CC1 Name','cc2@domain.com'=>'CC2 Name'] );
+//$mail->AddBCC( ['bcc@domain.com'=>'BCC1 Name','bcc2@domain.com'=>'BCC2 Name'] );
+
+$mail->SetSubject('Example mail');
+$mail->MessageText = 'Example plain-content!';
+$mail->MessageHTML = 'embedded.html';
+
+$mail->AddAttachment('screen_shot_sample_form.gif');
+</pre>
+          </div>
+        </div>
+      </div>
+    </div><!-- END pane 2 -->
+    <!-- About -->
+    <div class="tab-pane" id="pane-9">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <p class="title is-2 has-text-black">Hi, I&rsquo;m Andy Prevost</p>
+          <div class="content has-text-grey">
+            <p>
+              I have been a contributor to "open source" for a considerable number of years. My projects have included OpCache,
+              Content Management Systems, Templating engines, Mailing List managers,
+              IMAP email tools, Email transport tools, and many more.
+            </p>
+            <p>
+              I retired from developing software to aid in my health recovery. My pancreas decided to stop most of its
+              functionality. After a severe weight loss, and some ensuing coronary issues, I turned over my major projects
+              (PHPMailer mainly) to another admin.
+            </p>
+            <p>
+              As of 2022, I am "un-retiring" and resuming developing &ndash; starting with the release of
+              PHPMailer2, MailSend, Form2Mail, and FormValidator. All are i18n language compliant. All are much
+              simpler to use than their previous versions.
+            </p>
+            <p>
+              Note, I am available permanent part time and for contract projects.
+            </p>
+            <p>
+              <b>PS. If you are interested in joining as a team member on any of these projects, please contact me
+              with the email link below.</b>
+            </p>
+          </div>
+          <a class="button is-medium is-facebook" style="width: 50px;" href="https://www.facebook.com/groups/phpmailer2" target="_blank"><i class="fa fa-facebook-f"></i></a>
+          <a class="button is-medium is-twitter" style="width: 50px;" href="https://twitter.com/PHPMailer_2" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a class="button is-medium is-linkedin" style="width: 50px;" href="https://www.linkedin.com/in/andy-prevost-6b7297142/" target="_blank"><i class="fa fa-linkedin"></i></button>
+          <a class="button is-medium is-linkedin" style="width: 50px;" href="&#109&#97&#105&#108&#116&#111&#58&#97;&#110;&#100;&#121;&#64;&#99;&#111;&#100;&#101;&#119;&#111;&#114;&#120;&#116;&#101;&#99;&#104;&#46;&#99;&#111;&#109;?subject=Contact%20Us%20form%20enquiry&body=I%20am%20interested%20%0D%0A%0D%0A" rel="nofollow"  target="_blank"><i class="fa fa-envelope fa-lg" title="Send an Email"></i></a>
+        </div>
+        <div class="column is-4">
+          <img border="0" src="data:image/jpg;base64,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sPUDPSgY0zxnoaazK3KPn1wD/Wr4twUJNZ0xwxA9aSG7ocnWnADuar7yOlNZn67jTJL0cat0NPaEleDWdE0jH7351bSd0baxzUtFJpksHOVBKn26flUbswk56n06GpEx5uR3qK53I24DOO1Ansaunx4UvnjpVo1Q0iaWRHWRSADkEjFXjWctyRKSlpDUAJRRRQAGkoooAKSiigApKKKACiijNABRRRVkBRRRSAWiiikAUUUUDFopKWgApRSUopgJMMwv9CaprzFuPUir+NylfUYrM88B/KxwePpVxKSHCMbF9uaY33qsAcYqFl596opIUcVHKoNLyKRuRzQOxWZB2qPZz0qyw5poHNFx2IliJ5xVmzjwTntT1IVenPYVNEhUUwSJRESpO41l3EJW5YHPIzmtdWxxVe6TOHA5FSimrmSUwacIye1WWjB5HSmbStVcmxGkeD0p+welPFPQZPSlcLDY1IYe1WY4PNu485wPm/I5oCbeTU9mC0xbsoxUtiexcJpppTTTUMgSkooqQEooooASiiigAoopKAA0lFFABRRRQIWiiiqJCiiigAooooAKWkpaAClpKKBi0tJS0gHrWLIoXUFHbeP51sA1UvIV8zfgZIz+NXEqLFPU0wj86UEnGetGOaspDStIUqYCopHxSLREygdajZ1XpSSPzUX3jimMsQb5G3Y4q6OBzUYljiULkACkeVccHNArkm4ZpxIcYxVMzYNOSYE80rFXIi/kylGHy5qwqI4ypplxskjIOM4yD6GqkUpHegC49uB0pqkRnBp0c2RzRMoZcigGhDLuGKuWP+qc/wC1j9KzQDmteCPyYQh69T9almcmKaQ0pppqCApKKKQBSUUUAFJRRTEFJRRQAUUUUAFFJRQAtLSUtMkKKKKACilooAKKKKACiiigBaKSloGKKZcruiyOop4pR6HpQhlJOAKdnmkcbJCvp0ppPWtS0PJqtM+BUpbAqpIctQUNwXPtUyxcUIMcVN2oC5VuIi/Wo4h5J27jtPY9qttzUEgzTAbJkGmBjnjk0bRT0UCgYRhyTuPWmumw5qdaJFzSAjjerSvlcVSXg4qdDxSHcliXdcIPVhWqxrMtBm5T65rSapZlIaabSmkqCQpKKKACkoooAKSiigApKKKdgCiiinYAooopgOooopEhRRRSAKWkooAWkoooAWikpaBhRRRQAtKK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" alt="image" />
+        </div>
+      </div>
+    </div><!-- END pane 9 About -->
+  </div><!-- END tab-content -->
+</section>
+<script>(function(){var burger=document.querySelector('.navbar-burger');var menu=document.querySelector('#'+burger.dataset.target);burger.addEventListener('click',function(){burger.classList.toggle('is-active');menu.classList.toggle('is-active')})})()</script>
+<script>document.querySelectorAll("#nav li").forEach(function(navEl){navEl.onclick = function() { toggleTab(this.id, this.dataset.target);}});function toggleTab(selectedNav,targetId){var navEls=document.querySelectorAll("#nav li");navEls.forEach(function(navEl){if(navEl.id==selectedNav){navEl.classList.add("is-active")}else{if(navEl.classList.contains("is-active")){navEl.classList.remove("is-active")}}});var tabs=document.querySelectorAll(".tab-pane");tabs.forEach(function(tab){if(tab.id==targetId){tab.style.display="block"}else{tab.style.display="none"}})}</script>
+<script>var accItem = document.getElementsByClassName('accordionItem');var accHD = document.getElementsByClassName('accordionItemHeading');for (i = 0; i < accHD.length; i++) {accHD[i].addEventListener('click', toggleItem, false);}function toggleItem(){var itemClass = this.parentNode.className;for (i = 0; i < accItem.length; i++){accItem[i].className = 'accordionItem close';}if (itemClass == 'accordionItem close'){this.parentNode.className = 'accordionItem open';}}</script>
+</body>
+</html>
